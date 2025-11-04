@@ -1,12 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"math/rand"
-	"strings"
-	"time"
 
-	"github.com/alianjidaniir-design/sqilite06"
+	"github.com/alianjidaniir-design/sqlite06"
 )
 
 var Min = -12
@@ -34,6 +31,6 @@ func getstring(length int64) string {
 
 func main() {
 
-	sqilite06.Filename = "ch06.db"
+	sqlite06.Filename = "ch06.db"
 
 }
