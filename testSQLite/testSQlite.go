@@ -10,7 +10,7 @@ import (
 
 func main() {
 	//connect or create ac sqLite database
-	db, err := sql.Open("sqlite3", "testt.db")
+	db, err := sql.Open("sqlite3", "ch0code1.db")
 	if err != nil {
 		fmt.Println("Error connection:", err)
 		return
@@ -23,10 +23,8 @@ func main() {
 		fmt.Println("Version : ", err)
 		return
 	}
-	fmt.Println("SQlite3 version", version)
+	fmt.Println("SQLite3 version", version)
 
-	err = os.Remove("test.db")
-	if err != nil {
-		return
-	}
+	os.Remove("ch0code1.db")
+
 }
