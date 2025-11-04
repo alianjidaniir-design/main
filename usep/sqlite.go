@@ -80,7 +80,13 @@ func main() {
 	id = sqlite06.AddUser(t)
 	if id == -1 {
 		fmt.Println("There was an error adding user", t.Username)
-		fmt.Println(-1)
+	}
+
+	dsc = time.Now().Format("2006-01-02 15:04:05")
+	t.Description = dsc
+	err = sqlite06.DeleteUser(id)
+	if err != nil {
+		fmt.Println(err)
 	}
 
 }
