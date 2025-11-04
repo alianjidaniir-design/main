@@ -80,6 +80,7 @@ func main() {
 	id = sqlite06.AddUser(t)
 	if id == -1 {
 		fmt.Println("There was an error adding user", t.Username)
+		fmt.Println(-1)
 	}
 
 }
