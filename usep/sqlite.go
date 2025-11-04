@@ -71,13 +71,13 @@ func main() {
 	random_name := getstring(7)
 	random_surname := getstring(10)
 	dsc := time.Now().Format("2006-01-02 15:04:05")
-	t := sqlite06.Userdata{
+	t = sqlite06.Userdata{
 		Username:    random_name,
 		Name:        random_name,
 		Surname:     random_surname,
 		Description: dsc,
 	}
-	id := sqlite06.AddUser(t)
+	id = sqlite06.AddUser(t)
 	if id == -1 {
 		fmt.Println("There was an error adding user", t.Username)
 	}
