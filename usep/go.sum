@@ -1,4 +1,4 @@
-github.com/alianjidaniir-design/sqlite06 v0.0.0-20240229194925-33e668a9d0bf h1:UuqaGVbB4jdvhKoUbWVTYL9hq3iz0f36277mxyieUJs=
-github.com/alianjidaniir-design/sqlite06 v0.0.0-20240229194925-33e668a9d0bf/go.mod h1:Jb8EleQyl4lk7e5O09pp7PZiHK9XWyX2c5FBWczdYuE=
+github.com/alianjidaniir-design/sqlite06 v0.0.0-20251104071556-ac9ae3c08ada h1:MbJXCa2EJUvvkZSvvTHAV77eEny9UHp6hGKrDaJZYAk=
+github.com/alianjidaniir-design/sqlite06 v0.0.0-20251104071556-ac9ae3c08ada/go.mod h1:Jb8EleQyl4lk7e5O09pp7PZiHK9XWyX2c5FBWczdYuE=
 github.com/mattn/go-sqlite3 v1.14.32 h1:JD12Ag3oLy1zQA+BNn74xRgaBbdhbNIDYvQUEuuErjs=
 github.com/mattn/go-sqlite3 v1.14.32/go.mod h1:Uh1q+B4BYcTPb+yiD3kU8Ct7aC0hY9fxUwlHK0RXw+Y=

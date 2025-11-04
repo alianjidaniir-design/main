@@ -34,7 +34,7 @@ func getstring(length int64) string {
 
 func main() {
 
-	sqlite06.Filename = "ch06.db"
+	sqlite06.Filename = "ch01.db"
 	data, err := sqlite06.ListUsers()
 	if err != nil {
 		fmt.Println("ListUsers():", err)
@@ -45,6 +45,7 @@ func main() {
 			fmt.Println(v)
 		}
 	}
+	rand.New(rand.NewSource(time.Now().UnixNano()))
 	random_username := strings.ToLower(getstring(5))
 	t := sqlite06.Userdata{
 		Username:    random_username,
