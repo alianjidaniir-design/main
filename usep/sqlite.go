@@ -9,27 +9,19 @@ import (
 	"github.com/alianjidaniir-design/sqlite06"
 )
 
-var Min = -12
-var Max = 90
+var Min = 'A'
+var Max = 'z'
 
-func random(min, max int) int {
-	return rand.Intn(max-min) + min
+func random(r *rand.Rand) byte {
+	return byte(r.Intn(int(Max-Min+1)) + int(Min))
 }
 
-func getstring(length int64) string {
-	startChar := "A"
-	temp := ""
-	var i int64 = 1
-	for {
-		myRand := random(Min, Max)
-		newChar := string(startChar[0] + byte(myRand))
-		temp = temp + newChar
-		if i == length {
-			break
-		}
-		i++
+func getString(r *rand.Rand, length int) string {
+	var sb strings.Builder
+	for i := 0; i < length; i++ {
+		sb.WriteByte(random(r))
 	}
-	return temp
+	return sb.String()
 }
 
 func main() {
@@ -45,15 +37,17 @@ func main() {
 			fmt.Println(v)
 		}
 	}
-	rand.New(rand.NewSource(time.Now().UnixNano()))
-	random_username := strings.ToLower(getstring(5))
+	seed := time.Now().UnixNano()
+	r := rand.New(rand.NewSource(seed))
+
+	randomUsername := strings.ToLower(getString(r, 5))
 	t := sqlite06.Userdata{
-		Username:    random_username,
+		Username:    randomUsername,
 		Name:        "Ali",
 		Surname:     "Anjidani",
-		Description: "This is for me",
-	}
-	fmt.Println("Adding  username", random_username)
+		Description: "This is for me"}
+
+	fmt.Println("Adding  username", randomUsername)
 	id := sqlite06.AddUser(t)
 	if id == -1 {
 		fmt.Println("There was an error adding user", t.Username)
@@ -68,14 +62,15 @@ func main() {
 	if err != nil {
 		fmt.Println("DeleteUser:", err)
 	}
-	random_username = strings.ToLower(getstring(5))
-	random_name := getstring(7)
-	random_surname := getstring(10)
+	randomUsername = strings.ToLower(getString(r, 5))
+	randomName := getString(r, 7)
+	randomSurname := getString(r, 10)
+	fmt.Println(*r)
 	dsc := time.Now().Format("2006-01-02 15:04:05")
 	t = sqlite06.Userdata{
-		Username:    random_name,
-		Name:        random_name,
-		Surname:     random_surname,
+		Username:    randomName,
+		Name:        randomName,
+		Surname:     randomSurname,
 		Description: dsc,
 	}
 	id = sqlite06.AddUser(t)
