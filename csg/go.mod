@@ -1,4 +1,4 @@
-module project/ali/ch01/connectSQlite3
+module project/ali/ch01/SQ6/main/csg
 
 go 1.25.3
 
