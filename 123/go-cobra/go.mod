@@ -1,4 +1,4 @@
-module project/ali/ch01/SQ6/main/123/go-cobra-cli
+module project/ali/ch01/SQ6/main/123/go-cobra
 
 go 1.25.3
 

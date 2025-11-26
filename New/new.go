@@ -1,0 +1,48 @@
+package main
+
+import (
+	_ "embed"
+	"fmt"
+	"os"
+)
+
+///go:embed static/image.png
+
+var f1 []byte
+var f2 string
+
+func writeToFile(s []byte, path string) error {
+	fd, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		return err
+	}
+	defer fd.Close()
+	n, err := fd.Write(s)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("wrote %d bytes\n", n)
+	return nil
+}
+
+func main() {
+	arg := os.Args
+	if len(arg) == 1 {
+		fmt.Println("Please select 1|2")
+		return
+	}
+	fmt.Println("f1:", len(f1), "f2:", len(f2))
+	switch arg[1] {
+	case "1":
+		filename := "Untitled.png"
+		err := writeToFile(f1, filename)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+	case "2":
+		fmt.Print(f2)
+	default:
+		fmt.Println("Not a valid option!")
+	}
+}
