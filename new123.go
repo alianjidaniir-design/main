@@ -9,7 +9,7 @@ import (
 //go:embed static/Untitled.png
 var f1 []byte
 
-//go:embed static/textfile
+//go:embed static/file.txt
 var f2 string
 
 func writeToFile(s []byte, path string) error {
