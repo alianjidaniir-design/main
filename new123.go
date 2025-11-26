@@ -9,7 +9,7 @@ import (
 //go:embed static/Untitled.png
 var f1 []byte
 
-//go:embed static/file.text
+//go:embed static/textfile
 var f2 string
 
 func writeToFile(s []byte, path string) error {
@@ -35,7 +35,7 @@ func main() {
 	fmt.Println("f1:", len(f1), "f2:", len(f2))
 	switch arg[1] {
 	case "1":
-		filename := "Untitled.png"
+		filename := "/tmp/temporary.png"
 		err := writeToFile(f1, filename)
 		if err != nil {
 			fmt.Println(err)
