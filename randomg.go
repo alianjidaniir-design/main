@@ -35,7 +35,7 @@ func createfile(file string) {
 
 func main() {
 
-	as := os.Args[1:]
+	as := os.Args
 	if len(as) == 1 {
 		fmt.Println("Usage: randomFiles firstInt lastInt filename directory")
 		return
