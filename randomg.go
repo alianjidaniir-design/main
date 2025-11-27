@@ -9,13 +9,13 @@ import (
 	"sync"
 )
 
-func random(max, min int) int {
+func random(min, max int) int {
 	return rand.Intn(max-min) + min
 }
 func createfile(file string) {
 	_, err := os.Stat(file)
-	if err != nil {
-		fmt.Println("File does not exist")
+	if err == nil {
+		fmt.Println("alredy exists")
 		return
 	}
 
@@ -28,7 +28,7 @@ func createfile(file string) {
 
 	for i := 0; i < lines; i++ {
 		data := random(3, 47)
-		fmt.Fprintln(f, "%d\n", data)
+		fmt.Fprintf(f, "%d\n", data)
 	}
 
 }
@@ -67,10 +67,10 @@ func main() {
 	}
 
 	var waitGroup sync.WaitGroup
-	for i := start; i < end; i++ {
+	for i := start; i <= end; i++ {
 		waitGroup.Add(1)
-		go func(i int) {
-			filepath := filepath.Join(path, fmt.Sprintf("%s%D", filename, i))
+		go func(n int) {
+			filepath := filepath.Join(path, fmt.Sprintf("%s%d", filename, n))
 			defer waitGroup.Done()
 			createfile(filepath)
 		}(i)
