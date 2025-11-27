@@ -6,8 +6,9 @@ import (
 	"time"
 )
 
-func pm(xx int) int {
-	return xx * xx
+func pm(xx int) {
+	fmt.Println(xx*3*xx, xx)
+	return
 }
 
 func main() {
@@ -16,12 +17,12 @@ func main() {
 	fmt.Println(runtime.Version())
 	fmt.Printf("GOMAXPROCS=%d\n", runtime.GOMAXPROCS(1))
 
-	go func(x int) {
-		fmt.Println(123)
+	go func(xx int) {
+		fmt.Println(xx)
 	}(5)
 	go pm(13)
 	go pm(14)
-	time.Sleep(time.Second)
+	time.Sleep(time.Second * 1)
 	fmt.Println("Exiting")
 
 }
