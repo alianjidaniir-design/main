@@ -82,6 +82,7 @@ time TEXT NOT NULL,
 		dsc := "Description: " + strconv.Itoa(i)
 		err = insertData(db, dsc)
 		if err != nil {
+
 			fmt.Println("Insert data:", err)
 		}
 	}

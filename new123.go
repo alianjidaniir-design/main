@@ -32,7 +32,7 @@ func main() {
 		fmt.Println("Please select 1|2")
 		return
 	}
-	fmt.Println("f1:", len(f1), "f2:", len(f2))
+	fmt.Println("f1:", len(f1), "saeed:", len(f2))
 	switch arg[1] {
 	case "1":
 		filename := "/tmp/temporary.png"

@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	//connect or create ac sqLite database
+	//connect or create ac sqLite database.go
 	db, err := sql.Open("sqlite3", "ch0code1.db")
 	if err != nil {
 		fmt.Println("Error connection:", err)
